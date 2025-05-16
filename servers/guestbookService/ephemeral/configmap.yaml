@@ -1,0 +1,12 @@
+metadata:
+  name: "guestbookservice-cm"
+  namespace: "gitops-ephemeral"
+apiVersion: "v1"
+data:
+  REDIS_HOST: "null-override.local"
+kind: "ConfigMap"
+spec:
+  template:
+    spec:
+      containers:
+        image: "hello"

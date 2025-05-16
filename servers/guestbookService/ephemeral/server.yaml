@@ -1,0 +1,21 @@
+metadata:
+  name: "bbguestbook"
+  namespace: "256"
+apiVersion: "apps/v1"
+kind: "Deployment"
+spec:
+  template:
+    metadata:
+      labels:
+        app: "bbguestbook-ui"
+    spec:
+      containers:
+      - image: "corelab/ks-guestbook-demo:0.2"
+        name: "guestbook-ui"
+        ports:
+        - containerPort: 80
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: "bbguestbook-ui"

@@ -1,0 +1,11 @@
+source:
+  revision: HEAD
+  configsPath: servers/guestbookService/ephemeral
+target:
+  appName: bb-ephemeral-guestbook-service
+  namespace: gitops-ephemeral
+  environment: https://kubernetes.default.svc
+  cluster: in-cluster
+  clusterName: ephemeral
+  image: corelab/ks-guestbook-demo
+  image_tag: 0.1

@@ -1,0 +1,5 @@
+metadata:
+  namespace: "262"
+file: "<+input>"
+data:
+  REDIS_HOST: "262-override.local"

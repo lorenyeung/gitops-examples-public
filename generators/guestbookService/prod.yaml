@@ -1,0 +1,11 @@
+source:
+  revision: HEAD
+  configsPath: servers/guestbookService/prod
+target:
+  appName: bb-prod-guestbook-service
+  namespace: gitops-prod
+  environment: https://kubernetes.default.svc
+  cluster: in-cluster
+  clusterName: prod
+  image: corelab/ks-guestbook-demo
+  image_tag: 0.1

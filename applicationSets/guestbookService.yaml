@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1  
+kind: ApplicationSet  
+metadata:  
+  name: gh--guestbook-service-appset
+  namespace: gitops
+spec:  
+  generators:  
+    - git:  
+        repoURL: https://github.com/lorenyeung/gitops-examples-public.git
+        revision: HEAD  
+        files:  
+        - path: "generators/guestbookService/*.yaml"  
+  template:  
+    metadata:  
+      name: "{{target.appName}}"  
+      labels: 
+        harness.io/envRef: "engineering{{ target.clusterName }}gitops"
+        harness.io/serviceRef: "bbguestbookserviceappset"
+        harness.io/buildRef: '{{ target.image_tag }}'
+    spec:  
+      project: "0e964829"
+      source:  
+        repoURL: https://github.com/lorenyeung/gitops-examples-public.git
+        targetRevision: "{{source.revision}}"
+        path: "{{source.configsPath}}"
+        kustomize:
+          namePrefix: "{{target.clusterName}}-"
+          images:
+          - "{{target.image}}:{{target.image_tag}}"
+          namespace: "{{target.namespace}}"
+      destination:
+        server: "{{target.environment}}"
+        namespace: "{{target.namespace}}"
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
+        automated:
+          prune: true
+          selfHeal: true
