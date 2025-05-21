@@ -2,7 +2,7 @@ source:
   revision: HEAD
   configsPath: servers/guestbookService/ephemeral
 target:
-  appName: bb-ephemeral-guestbook-service
+  appName: gh-ephemeral-guestbook-service
   namespace: gitops-ephemeral
   environment: https://kubernetes.default.svc
   cluster: in-cluster
