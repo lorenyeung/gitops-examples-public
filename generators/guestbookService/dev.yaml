@@ -2,7 +2,7 @@ source:
   revision: HEAD
   configsPath: servers/guestbookService/dev
 target:
-  appName: bb-dev-guestbook-service
+  appName: gh-dev-guestbook-service
   namespace: gitops-dev
   environment: https://kubernetes.default.svc
   cluster: in-cluster
