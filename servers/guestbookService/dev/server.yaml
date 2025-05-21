@@ -1,5 +1,5 @@
 metadata:
-  name: "bbguestbook"
+  name: "ghguestbook"
   namespace: "gitops-override2"
 apiVersion: "apps/v1"
 kind: "Deployment"
@@ -7,7 +7,7 @@ spec:
   template:
     metadata:
       labels:
-        app: "bbguestbook-ui"
+        app: "ghguestbook-ui"
         execution: "8"
     spec:
       containers:
@@ -19,4 +19,4 @@ spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: "bbguestbook-ui"
+      app: "ghguestbook-ui"
