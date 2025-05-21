@@ -2,7 +2,7 @@ source:
   revision: HEAD
   configsPath: servers/guestbookService/prod
 target:
-  appName: bb-prod-guestbook-service
+  appName: gh-prod-guestbook-service
   namespace: gitops-prod
   environment: https://kubernetes.default.svc
   cluster: in-cluster
