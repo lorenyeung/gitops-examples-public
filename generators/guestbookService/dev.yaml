@@ -3,7 +3,7 @@ source:
   configsPath: servers/guestbookService/dev
 target:
   appName: gh-dev-guestbook-service
-  namespace: gitops-dev
+  namespace: tmpgitops
   environment: https://kubernetes.default.svc
   cluster: in-cluster
   clusterName: dev
