@@ -9,6 +9,8 @@ spec:
       labels:
         app: "ghguestbook-ui"
         execution: "8"
+        harness.io/envRef: "engineeringdevgitops"
+        harness.io/serviceRef: bbguestbookserviceappset
     spec:
       containers:
       - image: "corelab/ks-guestbook-demo:0.2"
