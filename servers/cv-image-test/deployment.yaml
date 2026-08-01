@@ -19,7 +19,7 @@ spec:
     metadata:
       labels:
         app: cv-image-test
-        version: "v-bad-nginx"
+        version: "v0.6.0"
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "8080"
@@ -27,14 +27,14 @@ spec:
     spec:
       containers:
       - name: metrics
-        image: nginx:1.27-alpine
+        image: quay.io/brancz/prometheus-example-app:v0.6.0
         ports:
-        - containerPort: 80
+        - containerPort: 8080
           name: http
         readinessProbe:
           httpGet:
-            path: /
-            port: 80
+            path: /metrics
+            port: 8080
           initialDelaySeconds: 2
           periodSeconds: 5
         resources:
