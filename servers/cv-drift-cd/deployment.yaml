@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cv-drift-cd
+  namespace: tmpgitops
+  labels:
+    app: cv-drift-cd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cv-drift-cd
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: cv-drift-cd
+        version: "v0.6.0"
+    spec:
+      containers:
+      - name: metrics
+        image: quay.io/brancz/prometheus-example-app:v0.6.0
+        ports:
+        - containerPort: 8080
+          name: http
+        resources:
+          requests:
+            cpu: 10m
+            memory: 32Mi
+          limits:
+            cpu: 100m
+            memory: 64Mi
