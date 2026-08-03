@@ -5,5 +5,5 @@ resources:
 - deployment.yaml
 - service.yaml
 images:
-- name: nginx
-  newTag: 1.27-alpine
+- name: quay.io/brancz/prometheus-example-app
+  newTag: v0.6.0
